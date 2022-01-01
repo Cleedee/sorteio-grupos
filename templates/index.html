@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class="title">
+        Libertadores da América 2022
+    </h1>
+    <p class="subtitle">
+        Simulador de Sorteio dos Grupos
+    </p>
+    <h2>1º Sorteio</h2>
+    <table class="table is-bordered">
+        <thead>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(4) %}
+            <tr>
+                {% for letra in 'ABCDEFGH' %}
+                <td>{{ sorteios[0][letra][i].nome }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>2º Sorteio</h2>
+    <table class="table is-bordered">
+        <thead>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(4) %}
+            <tr>
+                {% for letra in 'ABCDEFGH' %}
+                <td>{{ sorteios[1][letra][i].nome }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>  
+    <h2>3º Sorteio</h2>
+    <table class="table is-bordered">
+        <thead>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(4) %}
+            <tr>
+                {% for letra in 'ABCDEFGH' %}
+                <td>{{ sorteios[2][letra][i].nome }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
