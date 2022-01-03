@@ -24,12 +24,13 @@
             {% for i in range(4) %}
             <tr>
                 {% for letra in 'ABCDEFGH' %}
-                <td>{{ sorteios[0][letra][i].nome }}</td>
+                <td>{{ sorteios[0][letra][i].nome }}({{ sorteios[0][letra][i].pais }})</td>
                 {% endfor %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
     <h2>2º Sorteio</h2>
     <table class="table is-bordered">
         <thead>
@@ -48,12 +49,13 @@
             {% for i in range(4) %}
             <tr>
                 {% for letra in 'ABCDEFGH' %}
-                <td>{{ sorteios[1][letra][i].nome }}</td>
+                <td>{{ sorteios[1][letra][i].nome }}({{ sorteios[1][letra][i].pais }})</td>
                 {% endfor %}
             </tr>
             {% endfor %}
         </tbody>
-    </table>  
+    </table>
+    
     <h2>3º Sorteio</h2>
     <table class="table is-bordered">
         <thead>
@@ -72,7 +74,7 @@
             {% for i in range(4) %}
             <tr>
                 {% for letra in 'ABCDEFGH' %}
-                <td>{{ sorteios[2][letra][i].nome }}</td>
+                <td>{{ sorteios[2][letra][i].nome }}({{ sorteios[2][letra][i].pais }})</td>
                 {% endfor %}
             </tr>
             {% endfor %}

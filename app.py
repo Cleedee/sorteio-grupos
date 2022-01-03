@@ -7,6 +7,11 @@ app = Flask(__name__)
 
 @app.get('/')
 def index():
-    sorteios = [sorteio.sortear(), sorteio.sortear(), sorteio.sortear()]
-    print(len(sorteios[1]['C']))
+    sorteios = []
+    while True:
+        s = sorteio.sortear()
+        if sorteio.eh_valido(s):
+            sorteios.append(s)
+        if len(sorteios) == 3:
+            break
     return render_template('index.html', sorteios=sorteios)
