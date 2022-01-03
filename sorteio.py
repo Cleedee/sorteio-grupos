@@ -8,6 +8,7 @@ from operator import attrgetter
 @dataclass
 class Time:
     nome: str
+    imagem: str
     pais: str
     preliminar: bool = False
 
@@ -65,47 +66,47 @@ def eh_valido(grupos: dict):
     return not any([len(x) != 4 for x in grupos.values() ])
 
 pote1 = [
-    Time("Palmeiras", "BRA"),
-    Time("River Plate", "ARG"),
-    Time("Boca Jrs", "ARG"),
-    Time("Flamengo", "BRA"),
-    Time("Nacional", "URU"),
-    Time("Peñarol", "URU"),
-    Time("Athlético", "BRA"),
-    Time("Atlético-MG", "BRA")
+    Time("Palmeiras", "palmeiras.png", "BRA"),
+    Time("River Plate", "riverc.png", "ARG"),
+    Time("Boca Jrs", "bocc.png", "ARG"),
+    Time("Flamengo", "fla.png", "BRA"),
+    Time("Nacional", "naciouru.png", "URU"),
+    Time("Peñarol", "penarol.png", "URU"),
+    Time("Athlético", "atlpr.png", "BRA"),
+    Time("Atlético-MG", "atletico.png", "BRA")
 ]
 
 pote2 = [
-    Time("Cerro Porteño", "PAR"),
-    Time("Libertad", "PAR"),
-    Time("Ind. Del Valle", "EQU"),
-    Time("Univ. Católica", "CHI"),
-    Time("Emelec", "EQU"),
-    Time("Corinthians", "BRA"),
-    Time("Colo-Colo", "CHI"),
-    Time("Velez Sarsfield", "ARG")
+    Time("Cerro Porteño", "cerropor.png", "PAR"),
+    Time("Libertad", "libertad.png", "PAR"),
+    Time("Ind. Del Valle", "indep_j_teran.jpg", "EQU"),
+    Time("Univ. Católica", "unicatolica.png", "CHI"),
+    Time("Emelec", "emelec.png", "EQU"),
+    Time("Corinthians", "corinthians.png", "BRA"),
+    Time("Colo-Colo", "colocolo.png", "CHI"),
+    Time("Velez Sarsfield", "velez.png", "ARG")
 ]
 
 pote3 = [
-    Time("Sporting Cristal", "PER"),
-    Time("RB Bragantino", "BRA"),
-    Time("Tachira", "VEN"),
-    Time("Alianza Lima", "PER"),
-    Time("Tolima", "COL"),
-    Time("Colon", "ARG"),
-    Time("Caracas", "VEN"),
-    Time("Dep. Cali", "COL")
+    Time("Sporting Cristal", "cristal.jpg", "PER"),
+    Time("RB Bragantino", "bragantino.png", "BRA"),
+    Time("Tachira", "tachira.png", "VEN"),
+    Time("Alianza Lima", "alianza.jpg", "PER"),
+    Time("Tolima", "dtolima_col.png", "COL"),
+    Time("Colon", "colon.png", "ARG"),
+    Time("Caracas", "caracas.png", "VEN"),
+    Time("Dep. Cali", "dep_cali.png", "COL")
 ]
 
 pote4 = [
-    Time("Always Ready", "BOL"),
-    Time("Talleres", "ARG"),
-    Time("Ind. Petrolero", "BOL"),
-    Time("Fortaleza", "BRA"),
-    Time("Vencedor do G1", "XXX", True),
-    Time("Vencedor do G2", "XXX", True),
-    Time("Vencedor do G3", "XXX", True),
-    Time("Vencedor do G4", "XXX", True)
+    Time("Always Ready", "always_ready_bol.png", "BOL"),
+    Time("Talleres", "talleres.png", "ARG"),
+    Time("Ind. Petrolero", "indeppetrobol.png", "BOL"),
+    Time("Fortaleza", "fortaleza.png", "BRA"),
+    Time("Vencedor do G1", "preliberta.jpg", "XXX", True),
+    Time("Vencedor do G2", "preliberta.jpg", "XXX", True),
+    Time("Vencedor do G3", "preliberta.jpg", "XXX", True),
+    Time("Vencedor do G4", "preliberta.jpg", "XXX", True)
 ]
 
 participantes = set(pote1 + pote2 + pote3 + pote4)

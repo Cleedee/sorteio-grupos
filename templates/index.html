@@ -24,7 +24,7 @@
             {% for i in range(4) %}
             <tr>
                 {% for letra in 'ABCDEFGH' %}
-                <td>{{ sorteios[0][letra][i].nome }}({{ sorteios[0][letra][i].pais }})</td>
+                <td> <img src="{{ url_for('static', filename = 'images/' + sorteios[0][letra][i].imagem) }}" width="40"><small>{{ sorteios[0][letra][i].nome }}({{ sorteios[0][letra][i].pais }})</small></td>
                 {% endfor %}
             </tr>
             {% endfor %}
@@ -49,7 +49,7 @@
             {% for i in range(4) %}
             <tr>
                 {% for letra in 'ABCDEFGH' %}
-                <td>{{ sorteios[1][letra][i].nome }}({{ sorteios[1][letra][i].pais }})</td>
+                <td> <img src="{{ url_for('static', filename = 'images/' + sorteios[1][letra][i].imagem) }}" width="40"><small>{{ sorteios[1][letra][i].nome }}({{ sorteios[1][letra][i].pais }})</small></td>
                 {% endfor %}
             </tr>
             {% endfor %}
@@ -74,7 +74,7 @@
             {% for i in range(4) %}
             <tr>
                 {% for letra in 'ABCDEFGH' %}
-                <td>{{ sorteios[2][letra][i].nome }}({{ sorteios[2][letra][i].pais }})</td>
+                <td> <img src="{{ url_for('static', filename = 'images/' + sorteios[2][letra][i].imagem) }}" width="40"><small>{{ sorteios[2][letra][i].nome }}({{ sorteios[2][letra][i].pais }})</small></td>
                 {% endfor %}
             </tr>
             {% endfor %}
