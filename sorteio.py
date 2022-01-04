@@ -32,21 +32,17 @@ def sorteio_pote(grupos, pote, sorteados, quantidade):
     random.shuffle(pote_misturado)
     for letra in letras:
         time = pote_misturado.pop()
-        print('Coloca', time.nome, 'no grupo',letra,'?')
         if foi_sorteado(time, sorteados):
             pote_misturado.insert(0, time)
         if not mesma_nacionalidade(time.pais, grupos[letra]) and len(grupos[letra]) < quantidade:
-            print('Sim')
             grupos[letra].append(time)
             sorteados.append(time)
             continue
         elif mesma_nacionalidade(time.pais, grupos[letra]) and time.preliminar and len(grupos[letra]) < quantidade:
-            print(time.nome,'será colocado em grupo de mesma nacionalidade por ter vindo de fases preliminares')
             grupos[letra].append(time)
             sorteados.append(time)
             continue
         else:
-            print('Não')
             # jogar noutro grupo
             grupos_ciclados = cycle(letras)
             while next(grupos_ciclados) != letra:
@@ -55,9 +51,7 @@ def sorteio_pote(grupos, pote, sorteados, quantidade):
             for nome_grupo in grupos_ciclados:
                 if nome_grupo == letra:
                     break
-                print('Olhando o grupo', nome_grupo)
                 if not mesma_nacionalidade(time.pais, grupos[nome_grupo]) and len(grupos[nome_grupo]) < quantidade:
-                    print('Colocando no grupo')
                     grupos[nome_grupo].append(time)
                     sorteados.append(time)
                     break
@@ -134,24 +128,12 @@ def sortear():
     sorteados = pote1[:]
 
     # pote 2
-    print('POTE 2')
     sorteio_pote(grupos, pote2, sorteados, 2)
-
     # pote 3
-    print('POTE 3')
     sorteio_pote(grupos, pote3, sorteados, 3)
     # pote 4
-    print('POTE 4')
     sorteio_pote(grupos, pote4, sorteados, 4)
 
-    print('Grupo A', len(grupos['A']))
-    print('Grupo B', len(grupos['B']))
-    print('Grupo C', len(grupos['C']))
-    print('Grupo D', len(grupos['D']))
-    print('Grupo E', len(grupos['E']))    
-    print('Grupo F', len(grupos['F']))
-    print('Grupo G', len(grupos['G']))
-    print('Grupo H', len(grupos['H']))
     return grupos
 
 def mostrar_grupos(grupos):
