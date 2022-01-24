@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>1º Sorteio</h2>
+    <table class="table is-bordered">
+        <thead>
+            <tr align="center">
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(4) %}
+            <tr>
+                {% for letra in 'ABCDEFGH' %}
+                <td align="center">
+                    <img src="{{ url_for('static', filename = 'images/' + sorteios[0][letra][i].imagem) }}" width="40">
+                    <br/>
+                    <small>{{ sorteios[0][letra][i].nome }} ({{ sorteios[0][letra][i].pais }})</small>
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>2º Sorteio</h2>
+    <table class="table is-bordered">
+        <thead>
+            <tr align="center">
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(4) %}
+            <tr>
+                {% for letra in 'ABCDEFGH' %}
+                <td align="center">
+                    <img src="{{ url_for('static', filename = 'images/' + sorteios[1][letra][i].imagem) }}" width="40">
+                    <br/>
+                    <small>{{ sorteios[1][letra][i].nome }} ({{ sorteios[1][letra][i].pais }})</small>
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>3º Sorteio</h2>
+    <table class="table is-bordered">
+        <thead>
+            <tr align="center">
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(4) %}
+            <tr>
+                {% for letra in 'ABCDEFGH' %}
+                <td align="center">
+                    <img src="{{ url_for('static', filename = 'images/' + sorteios[2][letra][i].imagem) }}" width="40">
+                    <br/>
+                    <small>{{ sorteios[2][letra][i].nome }} ({{ sorteios[2][letra][i].pais }})</small>
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

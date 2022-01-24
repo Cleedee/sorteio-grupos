@@ -1,95 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 class="title">
-        Libertadores da América 2022
-    </h1>
-    <p class="subtitle">
-        Simulador de Sorteio dos Grupos
-    </p>
-    <h2>1º Sorteio</h2>
-    <table class="table is-bordered">
-        <thead>
-            <tr align="center">
-                <th>A</th>
-                <th>B</th>
-                <th>C</th>
-                <th>D</th>
-                <th>E</th>
-                <th>F</th>
-                <th>G</th>
-                <th>H</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in range(4) %}
-            <tr>
-                {% for letra in 'ABCDEFGH' %}
-                <td align="center">
-                    <img src="{{ url_for('static', filename = 'images/' + sorteios[0][letra][i].imagem) }}" width="40">
-                    <br/>
-                    <small>{{ sorteios[0][letra][i].nome }} ({{ sorteios[0][letra][i].pais }})</small>
-                </td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <form class="" action="" method="post">
+        {{ form.csrf_token }}
+        <div class="field">
+            <label class="label">{{ form.g1.label }}</label>
+            <div class="control">
+                <div class="select">
+                    {{ form.g1 }}
+                </div>
+            </div>
+        </div>
+		<div class="field">
+		    <label class="label">{{ form.g2.label }}</label>
+		    <div class="control">
+                <div class="select">
+                    {{ form.g2 }}
+                </div>
+		    </div>
+	    </div>
+        <div class="field">
+            <label class="label">{{ form.g3.label }}</label>
+            <div class="control">
+                <div class="select">
+                    {{ form.g3 }}
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">{{ form.g4.label }}</label>
+            <div class="control">
+                <div class="select">
+                    {{ form.g4 }}
+                </div>
+            </div>
+        </div>        
+        <div class="field">
+            <div class="control">
+                {{ form.submit }}
+            </div>
+        </div>        
+    </form>
 
-    <h2>2º Sorteio</h2>
-    <table class="table is-bordered">
-        <thead>
-            <tr align="center">
-                <th>A</th>
-                <th>B</th>
-                <th>C</th>
-                <th>D</th>
-                <th>E</th>
-                <th>F</th>
-                <th>G</th>
-                <th>H</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in range(4) %}
-            <tr>
-                {% for letra in 'ABCDEFGH' %}
-                <td align="center">
-                    <img src="{{ url_for('static', filename = 'images/' + sorteios[1][letra][i].imagem) }}" width="40">
-                    <br/>
-                    <small>{{ sorteios[1][letra][i].nome }} ({{ sorteios[1][letra][i].pais }})</small>
-                </td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    
-    <h2>3º Sorteio</h2>
-    <table class="table is-bordered">
-        <thead>
-            <tr align="center">
-                <th>A</th>
-                <th>B</th>
-                <th>C</th>
-                <th>D</th>
-                <th>E</th>
-                <th>F</th>
-                <th>G</th>
-                <th>H</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in range(4) %}
-            <tr>
-                {% for letra in 'ABCDEFGH' %}
-                <td align="center">
-                    <img src="{{ url_for('static', filename = 'images/' + sorteios[2][letra][i].imagem) }}" width="40">
-                    <br/>
-                    <small>{{ sorteios[2][letra][i].nome }} ({{ sorteios[2][letra][i].pais }})</small>
-                </td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 {% endblock %}

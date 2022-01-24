@@ -4,6 +4,7 @@ import random
 from copy import copy
 from itertools import cycle, dropwhile
 from operator import attrgetter
+from typing import List
 
 @dataclass
 class Time:
@@ -96,18 +97,42 @@ pote4 = [
     Time("Always Ready", "always_ready_bol.png", "BOL"),
     Time("Talleres", "talleres.png", "ARG"),
     Time("Ind. Petrolero", "indeppetrobol.png", "BOL"),
-    Time("Fortaleza", "fortaleza.png", "BRA"),
-    Time("Vencedor do G1", "preliberta.jpg", "XXX", True),
-    Time("Vencedor do G2", "preliberta.jpg", "XXX", True),
-    Time("Vencedor do G3", "preliberta.jpg", "XXX", True),
-    Time("Vencedor do G4", "preliberta.jpg", "XXX", True)
+    Time("Fortaleza", "fortaleza.png", "BRA")
 ]
 
-participantes = set(pote1 + pote2 + pote3 + pote4)
+grupo1 = [
+    Time("Milionarios", "milo.png", "COL", True),
+    Time("Fluminense", "fluminense.png", "BRA", True),
+    Time("Atlético Nacional", "medelin.png", "COL", True),
+    Time("Universidade César Vallejo", "cesarvallejo.png", "PER", True),
+    Time("Olímpia", "olimpia.png", "PAR", True)
+]
+
+grupo2 = [
+    Time("Audax Italiano", "audax.gif", "CHI", True),
+    Time("Estudiantes", "estudic.png", "ARG", True),
+    Time("Everton", "everton_ch.gif", "CHI", True),
+    Time("Monagas", "monagas_ven.png", "VEN", True)
+]
+
+grupo3 = [
+    Time("Deportivo Lara", "dep_lara_ven.gif", "VEN", True),
+    Time("Bolivar", "bolivar.png", "BOL", True),
+    Time("Universid Católica", "un_catolina_edu.png", True),
+    Time("Plaza Colonia", "plazacolonia.png", "URU", True),
+    Time("The Strongest", "strongest.png", "BOL", True) 
+]
+
+grupo4 = [
+    Time("América Mineiro", "ammg.gif", "BRA", True),
+    Time("Guarani", "guarani_par.png", "URU", True),
+    Time("City Torque", "torque_uru.png", "URU", True),
+    Time("Universitário", "universitaria_peru.png", "PER", True)
+]
 
 letras = string.ascii_uppercase[:8]
 
-def sortear():
+def sortear(classificados: List[Time]):
     grupos = {}
 
     for i in range(len(letras)):
@@ -132,7 +157,7 @@ def sortear():
     # pote 3
     sorteio_pote(grupos, pote3, sorteados, 3)
     # pote 4
-    sorteio_pote(grupos, pote4, sorteados, 4)
+    sorteio_pote(grupos, pote4 + classificados, sorteados, 4)
 
     return grupos
 
@@ -141,3 +166,17 @@ def mostrar_grupos(grupos):
         print('Grupo', letra)
         for time in grupos[letra]:
             print(time.nome, time.pais)
+
+def procurar_time(chave: str, times: List[Time]):
+    for time in times:
+        if time.imagem == chave:
+            return time
+    return None
+
+def trazer_escolha(chave, times, padrao):
+    if chave == 'aleatorio':
+        return random.choice(times)
+    elif chave == 'indeterminado':
+        return padrao
+    else:
+        return procurar_time(chave, times)

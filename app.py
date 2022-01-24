@@ -1,17 +1,46 @@
 from flask import Flask
 from flask.templating import render_template
+from flask_wtf import FlaskForm
+from wtforms import SelectField, SubmitField
 
 import sorteio
 
+
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'palavra_secreta'
+
+escolhas_padrao = [('aleatorio', 'Escolha por mim'), ('indeterminado', 'Deixe indeterminado')]
+times_g1 = escolhas_padrao + [(time.imagem, time.nome) for time in sorteio.grupo1]
+times_g2 = escolhas_padrao + [(time.imagem, time.nome) for time in sorteio.grupo2]
+times_g3 = escolhas_padrao + [(time.imagem, time.nome) for time in sorteio.grupo3]
+times_g4 = escolhas_padrao + [(time.imagem, time.nome) for time in sorteio.grupo4]
+
+class PreLibertaForm(FlaskForm):
+    # TODO lista de times
+    g1 = SelectField('Vencedor do G1', choices= times_g1)
+    g2 = SelectField('Vencedor do G2', choices= times_g2)
+    g3 = SelectField('Vencedor do G3', choices= times_g3)
+    g4 = SelectField('Vencedor do G4', choices= times_g4)
+    submit = SubmitField('Continuar', render_kw = {'class':'button is-success'})
 
 @app.get('/')
 def index():
+    form = PreLibertaForm()
+    return render_template('index.html', form=form)
+
+@app.post('/')
+def sortear():
+    form = PreLibertaForm()
+    classificados = []
+    classificados += [ sorteio.trazer_escolha(form.g1.data, sorteio.grupo1, sorteio.Time("Vencedor do G1", "preliberta.jpg", "XXX", True)) ]
+    classificados += [ sorteio.trazer_escolha(form.g2.data, sorteio.grupo2, sorteio.Time("Vencedor do G2", "preliberta.jpg", "XXX", True)) ]
+    classificados += [ sorteio.trazer_escolha(form.g3.data, sorteio.grupo3, sorteio.Time("Vencedor do G3", "preliberta.jpg", "XXX", True)) ]
+    classificados += [ sorteio.trazer_escolha(form.g4.data, sorteio.grupo4, sorteio.Time("Vencedor do G4", "preliberta.jpg", "XXX", True)) ]
     sorteios = []
     while True:
-        s = sorteio.sortear()
+        s = sorteio.sortear(classificados)
         if sorteio.eh_valido(s):
             sorteios.append(s)
         if len(sorteios) == 3:
             break
-    return render_template('index.html', sorteios=sorteios)
+    return render_template('sorteio.html', sorteios=sorteios)
