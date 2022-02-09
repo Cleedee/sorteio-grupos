@@ -1,44 +1,16 @@
 {% extends 'base.html' %}
+{% block navegacao %}
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="#" class="is-active">Início</a></li>
+  </ul>
+</nav>
+{% endblock %}
 {% block content %}
-    <form class="" action="" method="post">
-        {{ form.csrf_token }}
-        <div class="field">
-            <label class="label">{{ form.g1.label }}</label>
-            <div class="control">
-                <div class="select">
-                    {{ form.g1 }}
-                </div>
-            </div>
-        </div>
-		<div class="field">
-		    <label class="label">{{ form.g2.label }}</label>
-		    <div class="control">
-                <div class="select">
-                    {{ form.g2 }}
-                </div>
-		    </div>
-	    </div>
-        <div class="field">
-            <label class="label">{{ form.g3.label }}</label>
-            <div class="control">
-                <div class="select">
-                    {{ form.g3 }}
-                </div>
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">{{ form.g4.label }}</label>
-            <div class="control">
-                <div class="select">
-                    {{ form.g4 }}
-                </div>
-            </div>
-        </div>        
-        <div class="field">
-            <div class="control">
-                {{ form.submit }}
-            </div>
-        </div>        
-    </form>
+
+<ul>
+    <li><a href="{{ url_for('liberta.index') }}">Libertadores da América 2022</a></li>
+    <li><a href="{{ url_for('sula.index') }}">Campeonato Sul-americano 2022</a></li>
+</ul>
 
 {% endblock %}

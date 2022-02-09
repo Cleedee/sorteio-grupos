@@ -3,38 +3,32 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sorteio da Libertadores da América 2022</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">    
+    <title>Sorteio de Fases de Grupo de Torneios de Futebol</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   </head>
   <body>
     <section class="hero is-info">
       <div class="hero-body">
         <p class="title">
-          Libertadores da América 2022
+          Sorteio de Fases de Grupo de Torneios de Futebol
         </p>
         <p class="subtitle">
-          Simulador de Sorteio dos Grupos
+          {{ titulo }}
         </p>
       </div>
     </section>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div id="navbarPrincipal" class="navbar-menu">
-          <div class="navbar-start">
-              <a class="navbar-item" href="{{ url_for('index') }}">
-                  Home
-              </a>
-          </div>
-      </div>
-    </nav>
     <section class="section">
       <div class="container">
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+              {% block navegacao %}{% endblock %}
+          </nav>
           {% block content %}{% endblock %}
       </div>
     </section>
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
-          <strong>Simula Grupos Libertadores 2022</strong> by <a href="https://github.com/Cleedee">Cláudio Torcato</a>.
+          <strong>Simula Grupos</strong> by <a href="https://github.com/Cleedee">Cláudio Torcato</a>.
         </p>
       </div>
     </footer>

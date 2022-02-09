@@ -2,7 +2,7 @@ from base import Time
 
 pote1 = [
     Time('Santos', 'santos.png', 'BRA'),
-    Time('São Paulo', 'sao_paulo.png', 'BRA'),
+    Time('São Paulo', 'saopaulo.png', 'BRA'),
     Time('Internacional', 'interrs.png', 'BRA'),
     Time('Independiente', 'indepc.png', 'ARG'),
     Time('Racing', 'racingc.png', 'ARG'),
