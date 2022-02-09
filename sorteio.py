@@ -6,6 +6,7 @@ from itertools import cycle, dropwhile
 from operator import attrgetter
 from typing import List
 
+
 @dataclass
 class Time:
     nome: str
@@ -19,14 +20,17 @@ class Time:
     def __hash__(self) -> int:
         return hash(self.nome)
 
+
 def mesma_nacionalidade(pais, grupo):
     for time in grupo:
         if time.pais == pais:
             return True
     return False
 
+
 def foi_sorteado(time, sorteados):
     return True if time in sorteados else False
+
 
 def sorteio_pote(grupos, pote, sorteados, quantidade):
     pote_misturado = pote[:]
@@ -57,8 +61,10 @@ def sorteio_pote(grupos, pote, sorteados, quantidade):
                     sorteados.append(time)
                     break
 
+
 def eh_valido(grupos: dict):
-    return not any([len(x) != 4 for x in grupos.values() ])
+    return not any([len(x) != 4 for x in grupos.values()])
+
 
 pote1 = [
     Time("Palmeiras", "palmeiras.png", "BRA"),
@@ -101,7 +107,7 @@ pote4 = [
 ]
 
 grupo1 = [
-    Time("Milionarios", "milo.png", "COL", True),
+    Time("Milionarios", "millo.png", "COL", True),
     Time("Fluminense", "fluminense.png", "BRA", True),
     Time("Atlético Nacional", "medelin.png", "COL", True),
     Time("Universidade César Vallejo", "cesarvallejo.png", "PER", True),
@@ -118,9 +124,9 @@ grupo2 = [
 grupo3 = [
     Time("Deportivo Lara", "dep_lara_ven.gif", "VEN", True),
     Time("Bolivar", "bolivar.png", "BOL", True),
-    Time("Universid Católica", "un_catolina_edu.png", True),
+    Time("Universid Católica", "un_catolica_ecu.png", "EQU", True),
     Time("Plaza Colonia", "plazacolonia.png", "URU", True),
-    Time("The Strongest", "strongest.png", "BOL", True) 
+    Time("The Strongest", "strongest.png", "BOL", True)
 ]
 
 grupo4 = [
@@ -131,6 +137,7 @@ grupo4 = [
 ]
 
 letras = string.ascii_uppercase[:8]
+
 
 def sortear(classificados: List[Time]):
     grupos = {}
@@ -161,17 +168,20 @@ def sortear(classificados: List[Time]):
 
     return grupos
 
+
 def mostrar_grupos(grupos):
     for letra in letras:
         print('Grupo', letra)
         for time in grupos[letra]:
             print(time.nome, time.pais)
 
+
 def procurar_time(chave: str, times: List[Time]):
     for time in times:
         if time.imagem == chave:
             return time
     return None
+
 
 def trazer_escolha(chave, times, padrao):
     if chave == 'aleatorio':
