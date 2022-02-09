@@ -1,24 +1,8 @@
-from dataclasses import dataclass
-import string
 import random
-from copy import copy
-from itertools import cycle, dropwhile
-from operator import attrgetter
 from typing import List
+from itertools import cycle
 
-
-@dataclass
-class Time:
-    nome: str
-    imagem: str
-    pais: str
-    preliminar: bool = False
-
-    def __eq__(self, __o: object) -> bool:
-        return self.nome == __o.nome
-
-    def __hash__(self) -> int:
-        return hash(self.nome)
+from base import Time, LETRAS_8_GRUPOS
 
 
 def mesma_nacionalidade(pais, grupo):
@@ -35,28 +19,30 @@ def foi_sorteado(time, sorteados):
 def sorteio_pote(grupos, pote, sorteados, quantidade):
     pote_misturado = pote[:]
     random.shuffle(pote_misturado)
-    for letra in letras:
+    for letra in LETRAS_8_GRUPOS:
         time = pote_misturado.pop()
         if foi_sorteado(time, sorteados):
             pote_misturado.insert(0, time)
-        if not mesma_nacionalidade(time.pais, grupos[letra]) and len(grupos[letra]) < quantidade:
+        if not mesma_nacionalidade(time.pais, grupos[letra]) and \
+                len(grupos[letra]) < quantidade:
             grupos[letra].append(time)
             sorteados.append(time)
             continue
-        elif mesma_nacionalidade(time.pais, grupos[letra]) and time.preliminar and len(grupos[letra]) < quantidade:
+        elif mesma_nacionalidade(time.pais, grupos[letra]) and \
+                time.preliminar and len(grupos[letra]) < quantidade:
             grupos[letra].append(time)
             sorteados.append(time)
             continue
         else:
             # jogar noutro grupo
-            grupos_ciclados = cycle(letras)
+            grupos_ciclados = cycle(LETRAS_8_GRUPOS)
             while next(grupos_ciclados) != letra:
                 pass
-            possiveis = []
             for nome_grupo in grupos_ciclados:
                 if nome_grupo == letra:
                     break
-                if not mesma_nacionalidade(time.pais, grupos[nome_grupo]) and len(grupos[nome_grupo]) < quantidade:
+                if not mesma_nacionalidade(time.pais, grupos[nome_grupo]) and \
+                        len(grupos[nome_grupo]) < quantidade:
                     grupos[nome_grupo].append(time)
                     sorteados.append(time)
                     break
@@ -136,14 +122,12 @@ grupo4 = [
     Time("Universitário", "universitaria_peru.png", "PER", True)
 ]
 
-letras = string.ascii_uppercase[:8]
-
 
 def sortear(classificados: List[Time]):
     grupos = {}
 
-    for i in range(len(letras)):
-        grupos[letras[i]] = []
+    for i in range(len(LETRAS_8_GRUPOS)):
+        grupos[LETRAS_8_GRUPOS[i]] = []
 
     pote1_misturado = pote1[:]
 
@@ -152,10 +136,9 @@ def sortear(classificados: List[Time]):
     # retira o campeão do sorteio dos cabeças-de-chave
     pote1_misturado.pop(0)
     random.shuffle(pote1_misturado)
-    for letra in letras[1:8]:
+    for letra in LETRAS_8_GRUPOS[1:8]:
         time = pote1_misturado.pop()
         grupos[letra].append(time)
-        #print('Grupo', letra, ': ', time.nome)
 
     sorteados = pote1[:]
 
@@ -170,23 +153,7 @@ def sortear(classificados: List[Time]):
 
 
 def mostrar_grupos(grupos):
-    for letra in letras:
+    for letra in LETRAS_8_GRUPOS:
         print('Grupo', letra)
         for time in grupos[letra]:
             print(time.nome, time.pais)
-
-
-def procurar_time(chave: str, times: List[Time]):
-    for time in times:
-        if time.imagem == chave:
-            return time
-    return None
-
-
-def trazer_escolha(chave, times, padrao):
-    if chave == 'aleatorio':
-        return random.choice(times)
-    elif chave == 'indeterminado':
-        return padrao
-    else:
-        return procurar_time(chave, times)
