@@ -118,8 +118,9 @@ grupo3 = [
 grupo4 = [
     Time("América Mineiro", "ammg.gif", "BRA", True),
     Time("Guarani", "guarani_par.png", "URU", True),
-    Time("City Torque", "torque_uru.png", "URU", True),
-    Time("Universitário", "universitaria_peru.png", "PER", True)
+    # Time("City Torque", "torque_uru.png", "URU", True), Perdeu para o Barcelona no pênaltis
+    Time("Universitário", "universitaria_peru.png", "PER", True),
+    Time("Barcelona SC", "barcelonaeq.png", "EQU", True)
 ]
 
 
