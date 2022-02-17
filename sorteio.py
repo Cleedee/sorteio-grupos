@@ -108,7 +108,8 @@ grupo2 = [
 ]
 
 grupo3 = [
-    Time("Deportivo Lara", "dep_lara_ven.gif", "VEN", True),
+    # Time("Deportivo Lara", "dep_lara_ven.gif", "VEN", True),
+    # desclassificado pelo Bolivar
     Time("Bolivar", "bolivar.png", "BOL", True),
     Time("Universid Católica", "un_catolica_ecu.png", "EQU", True),
     Time("Plaza Colonia", "plazacolonia.png", "URU", True),
@@ -118,7 +119,7 @@ grupo3 = [
 grupo4 = [
     Time("América Mineiro", "ammg.gif", "BRA", True),
     Time("Guarani", "guarani_par.png", "URU", True),
-    # Time("City Torque", "torque_uru.png", "URU", True), Perdeu para o Barcelona no pênaltis
+    # Time("City Torque", "torque_uru.png", "URU", True), Perdeu para o Barcelona nos pênaltis
     Time("Universitário", "universitaria_peru.png", "PER", True),
     Time("Barcelona SC", "barcelonaeq.png", "EQU", True)
 ]
