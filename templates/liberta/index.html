@@ -6,6 +6,17 @@
   </ul>
 {% endblock %}
 {% block content %}
+    <article class="message is-info">
+	<!--
+      <div class="message-header">
+        <p>Info</p>
+        <button class="delete" aria-label="delete"></button>
+      </div>
+	-->
+      <div class="message-body">
+        Os vencedores de cada grupo vão para o Pote 4.
+      </div>
+    </article>
     <form class="" action="" method="post">
         {{ form.csrf_token }}
         <div class="field">
