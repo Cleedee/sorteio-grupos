@@ -6,67 +6,101 @@
   </ul>
 {% endblock %}
 {% block content %}
-<div class="card">
-    <header class="card-header">
-        <p class="card-header-title">Pote 1</p>
-    </header>
-    <div class="card-content">
-        <ul>
-            {% for time in pote1 %}
-            <li>
-                <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
-                {{ time.nome }}
-                {% if 'LDU' in time.nome or 'Junior' in time.nome %}
-                 (* Caso se classifique)
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
+
+<div class="tile is-ancestor">
+    <div class="tile is-vertical is-parent">
+        <div class="tile is-child box">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Pote 1</p>
+                </header>
+                <div class="card-content">
+                    <ul>
+                        {% for time in pote1 %}
+                        <li>
+                            <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
+                            {{ time.nome }}
+                            {% if 'LDU' in time.nome or 'Junior' in time.nome %}
+                             (* Caso se classifique)
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Pote 2</p>
+                </header>
+                <div class="card-content">
+                    <ul>
+                        {% for time in pote2 %}
+                        <li>
+                            <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
+                            {{ time.nome }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Pote 3</p>
+                </header>
+                <div class="card-content">
+                    <ul>
+                        {% for time in pote3 %}
+                        <li>
+                            <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
+                            {{ time.nome }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Pote 4</p>
+                </header>
+                <div class="card-content">
+                    <ul>
+                        {% for time in pote4 %}
+                        <li>
+                            <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
+                            {{ time.nome }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tile is-parent">
+        <div class="tile is-child box">
+            <p class="subtitle">Informação</p>
+            <ul>
+                <li>
+                    A primeira fase começa nos dias 8, 9 e 10 de março com as partidas de ida.
+                </li>
+                <li>
+                    Subirão 2 times de cada um dos seguintes países:
+                    Bolívia, Chile, Colômbia, Equador, Paraguai, Peru, Uruguai e Venezuela.
+                </li>
+                <li>
+                    Da Libertadores, virão os perdedores da terceira fase. Saberemos quem são nos dias 15, 16
+                    e 17 de março.
+                </li>
+            </ul>
+            <p>
+                <strong>Fonte:</strong>
+                <a href="https://pt.wikipedia.org/wiki/Copa_Sul-Americana_de_2022">Copa Sul-Americana 2022</a>
+                 e
+                <a href="https://pt.wikipedia.org/wiki/Copa_Libertadores_da_Am%C3%A9rica_de_2022">
+                    Copa Libertadores 2022
+                </a>.
+            </p>
+        </div>
     </div>
 </div>
-<div class="card">
-    <header class="card-header">
-        <p class="card-header-title">Pote 2</p>
-    </header>
-    <div class="card-content">
-        <ul>
-            {% for time in pote2 %}
-            <li>
-                <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
-                {{ time.nome }}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
-<div class="card">
-    <header class="card-header">
-        <p class="card-header-title">Pote 3</p>
-    </header>
-    <div class="card-content">
-        <ul>
-            {% for time in pote3 %}
-            <li>
-                <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
-                {{ time.nome }}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
-<div class="card">
-    <header class="card-header">
-        <p class="card-header-title">Pote 4</p>
-    </header>
-    <div class="card-content">
-        <ul>
-            {% for time in pote4 %}
-            <li>
-                <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
-                {{ time.nome }}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+
 {% endblock %}

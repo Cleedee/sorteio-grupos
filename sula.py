@@ -9,7 +9,7 @@ bp = Blueprint('sula', __name__, url_prefix='/sula')
 def index():
     return render_template(
         'sula/index.html',
-        titulo='Sul-americana 2022',
+        titulo='Copa Sul-Americana 2022',
         pote1=sorteio.pote1,
         pote2=sorteio.pote2,
         pote3=sorteio.pote3,

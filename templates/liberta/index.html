@@ -6,56 +6,79 @@
   </ul>
 {% endblock %}
 {% block content %}
-    <article class="message is-info">
-	<!--
-      <div class="message-header">
-        <p>Info</p>
-        <button class="delete" aria-label="delete"></button>
-      </div>
-	-->
-      <div class="message-body">
-        Os vencedores de cada grupo vão para o Pote 4.
-      </div>
-    </article>
-    <form class="" action="" method="post">
-        {{ form.csrf_token }}
-        <div class="field">
-            <label class="label">{{ form.g1.label }}</label>
-            <div class="control">
-                <div class="select">
-                    {{ form.g1 }}
+<div class="tile is-ancestor">
+    <div class="tile is-vertical is-parent">
+        <div class="tile is-child box">
+            <article class="message is-info">
+              <div class="message-body">
+                Os vencedores de cada grupo vão para o Pote 4.
+              </div>
+            </article>
+            <form class="" action="" method="post">
+                {{ form.csrf_token }}
+                <div class="field">
+                    <label class="label">{{ form.g1.label }}</label>
+                    <div class="control">
+                        <div class="select">
+                            {{ form.g1 }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-		<div class="field">
-		    <label class="label">{{ form.g2.label }}</label>
-		    <div class="control">
-                <div class="select">
-                    {{ form.g2 }}
+        		<div class="field">
+        		    <label class="label">{{ form.g2.label }}</label>
+        		    <div class="control">
+                        <div class="select">
+                            {{ form.g2 }}
+                        </div>
+        		    </div>
+        	    </div>
+                <div class="field">
+                    <label class="label">{{ form.g3.label }}</label>
+                    <div class="control">
+                        <div class="select">
+                            {{ form.g3 }}
+                        </div>
+                    </div>
                 </div>
-		    </div>
-	    </div>
-        <div class="field">
-            <label class="label">{{ form.g3.label }}</label>
-            <div class="control">
-                <div class="select">
-                    {{ form.g3 }}
+                <div class="field">
+                    <label class="label">{{ form.g4.label }}</label>
+                    <div class="control">
+                        <div class="select">
+                            {{ form.g4 }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">{{ form.g4.label }}</label>
-            <div class="control">
-                <div class="select">
-                    {{ form.g4 }}
+                <div class="field">
+                    <div class="control">
+                        {{ form.submit }}
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
-        <div class="field">
-            <div class="control">
-                {{ form.submit }}
-            </div>
+    </div>
+    <div class="tile is-parent">
+        <div class="tile is-child box">
+            <p class="subtitle">Informação</p>
+            <p>
+                A <a href="https://en.wikipedia.org/wiki/2022_Copa_Libertadores#Second_stage">segunda fase</a>
+                começa com partidas nos dias 22 e 23 de fevereiro.
+            </p>
+            <p>
+                A <a href="https://en.wikipedia.org/wiki/2022_Copa_Libertadores#Third_stage">terceira fase</a>
+                começa com partidas nos dias 8 e 10 de fevereiro.
+            </p>
+            <p>
+                Vencedores dos 4 grupos entram na fase de grupos.
+            </p>
+            <p>
+                Perdedores vão para a fase de grupos da Copa Sul-Americana 2022.
+            </p>
+            <p>
+                <strong>Fonte:</strong>
+                <a href="https://en.wikipedia.org/wiki/2022_Copa_Libertadores">Copa Libertadores 2022 na Wikipedia.</a>
+            </p>
         </div>
-    </form>
+    </div>
+</div>
 
 {% endblock %}

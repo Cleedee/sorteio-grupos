@@ -33,7 +33,7 @@ class PreLibertaForm(FlaskForm):
 def index():
     form = PreLibertaForm()
     return render_template('liberta/index.html', form=form,
-                           titulo='Libertadores da América 2022')
+                           titulo='Copa Libertadores 2022')
 
 
 @bp.post('/')
@@ -68,4 +68,4 @@ def sortear():
         if len(sorteios) == 3:
             break
     return render_template('liberta/sorteio.html', sorteios=sorteios,
-                           titulo='Libertadores da América 2022')
+                           titulo='Copa Libertadores 2022')
