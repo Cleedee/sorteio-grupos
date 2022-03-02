@@ -93,7 +93,8 @@ pote4 = [
 ]
 
 grupo1 = [
-    Time("Millonarios", "millo.png", "COL", True),
+    # Time("Millonarios", "millo.png", "COL", True),
+    # desclassificado pelo Fluminense
     Time("Fluminense", "fluminense.png", "BRA", True),
     Time("Atlético Nacional", "medelin.png", "COL", True),
     # Time("Universidade César Vallejo", "cesarvallejo.png", "PER", True),
@@ -105,7 +106,8 @@ grupo2 = [
     Time("Audax Italiano", "audax.gif", "CHI", True),
     Time("Estudiantes", "estudic.png", "ARG", True),
     Time("Everton", "everton_ch.gif", "CHI", True),
-    Time("Monagas", "monagas_ven.png", "VEN", True)
+    # Time("Monagas", "monagas_ven.png", "VEN", True)
+    # desclassificado pelo Everton
 ]
 
 grupo3 = [
@@ -113,7 +115,8 @@ grupo3 = [
     # desclassificado pelo Bolivar
     Time("Bolivar", "bolivar.png", "BOL", True),
     Time("Universid Católica", "un_catolica_ecu.png", "EQU", True),
-    Time("Plaza Colonia", "plazacolonia.png", "URU", True),
+    # Time("Plaza Colonia", "plazacolonia.png", "URU", True),
+    # desclassificado pelo The Strongest
     Time("The Strongest", "strongest.png", "BOL", True)
 ]
 
