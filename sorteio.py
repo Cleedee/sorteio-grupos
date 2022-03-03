@@ -103,7 +103,8 @@ grupo1 = [
 ]
 
 grupo2 = [
-    Time("Audax Italiano", "audax.gif", "CHI", True),
+    # Time("Audax Italiano", "audax.gif", "CHI", True),
+    # desclassificado pelo Estudiantes
     Time("Estudiantes", "estudic.png", "ARG", True),
     Time("Everton", "everton_ch.gif", "CHI", True),
     # Time("Monagas", "monagas_ven.png", "VEN", True)
@@ -113,7 +114,8 @@ grupo2 = [
 grupo3 = [
     # Time("Deportivo Lara", "dep_lara_ven.gif", "VEN", True),
     # desclassificado pelo Bolivar
-    Time("Bolivar", "bolivar.png", "BOL", True),
+    # Time("Bolivar", "bolivar.png", "BOL", True),
+    # desclassificado pelo Universid Católica
     Time("Universid Católica", "un_catolica_ecu.png", "EQU", True),
     # Time("Plaza Colonia", "plazacolonia.png", "URU", True),
     # desclassificado pelo The Strongest
@@ -122,9 +124,11 @@ grupo3 = [
 
 grupo4 = [
     Time("América Mineiro", "ammg.gif", "BRA", True),
-    Time("Guarani", "guarani_par.png", "URU", True),
+    # Time("Guarani", "guarani_par.png", "URU", True),
+    # desclassificado pelo América
     # Time("City Torque", "torque_uru.png", "URU", True), Perdeu para o Barcelona nos pênaltis
-    Time("Universitário", "universitaria_peru.png", "PER", True),
+    # Time("Universitário", "universitaria_peru.png", "PER", True),
+    # desclassificado pelo Barcelona
     Time("Barcelona SC", "barcelonaeq.png", "EQU", True)
 ]
 
