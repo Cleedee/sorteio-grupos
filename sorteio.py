@@ -96,7 +96,8 @@ grupo1 = [
     # Time("Millonarios", "millo.png", "COL", True),
     # desclassificado pelo Fluminense
     Time("Fluminense", "fluminense.png", "BRA", True),
-    Time("Atlético Nacional", "medelin.png", "COL", True),
+    # Time("Atlético Nacional", "medelin.png", "COL", True),
+    # desclassificado pelo Olimpia
     # Time("Universidade César Vallejo", "cesarvallejo.png", "PER", True),
     # desclassificado pelo Olimpia
     Time("Olímpia", "olimpia.png", "PAR", True)
