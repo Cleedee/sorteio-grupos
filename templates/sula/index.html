@@ -20,8 +20,8 @@
                         <li>
                             <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
                             {{ time.nome }}
-                            {% if 'LDU' in time.nome or 'Junior' in time.nome %}
-                             (* Caso se classifique)
+                            {% if time.preliminar %}
+                             (*)
                             {% endif %}
                         </li>
                         {% endfor %}
@@ -38,6 +38,9 @@
                         <li>
                             <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
                             {{ time.nome }}
+                            {% if time.preliminar %}
+                            (*)
+                           {% endif %}
                         </li>
                         {% endfor %}
                     </ul>
@@ -53,6 +56,9 @@
                         <li>
                             <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
                             {{ time.nome }}
+                            {% if time.preliminar %}
+                            (*)
+                           {% endif %}
                         </li>
                         {% endfor %}
                     </ul>
@@ -68,11 +74,19 @@
                         <li>
                             <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
                             {{ time.nome }}
+                            {% if time.preliminar %}
+                            (*)
+                           {% endif %}
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-content">
+                    (*) - caso se classifiquem.
+                </div>
+            </div>            
         </div>
     </div>
     <div class="tile is-parent">
@@ -80,7 +94,7 @@
             <p class="subtitle">Informação</p>
             <ul>
                 <li>
-                    A primeira fase começa nos dias 8, 9 e 10 de março com as partidas de ida.
+                    A primeira fase termina nos dias 15, 16 e 17 de março com as partidas de volta.
                 </li>
                 <li>
                     Subirão 2 times de cada um dos seguintes países:

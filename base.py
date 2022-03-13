@@ -34,3 +34,6 @@ def trazer_escolha(chave, times, padrao):
         return padrao
     else:
         return procurar_time(chave, times)
+
+def pegar_ranking(time):
+    return time.ranking
