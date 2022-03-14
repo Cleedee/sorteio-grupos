@@ -1,55 +1,9 @@
 import random
-from typing import List
-from itertools import cycle
 
-from base import Time, LETRAS_8_GRUPOS
+from base import Time, LETRAS_8_GRUPOS, sorteio_pote
 
 
-def mesma_nacionalidade(pais, grupo):
-    for time in grupo:
-        if time.pais == pais:
-            return True
-    return False
 
-
-def foi_sorteado(time, sorteados):
-    return True if time in sorteados else False
-
-
-def sorteio_pote(grupos, pote, sorteados, quantidade):
-    pote_misturado = pote[:]
-    random.shuffle(pote_misturado)
-    for letra in LETRAS_8_GRUPOS:
-        time = pote_misturado.pop()
-        if foi_sorteado(time, sorteados):
-            pote_misturado.insert(0, time)
-        if not mesma_nacionalidade(time.pais, grupos[letra]) and \
-                len(grupos[letra]) < quantidade:
-            grupos[letra].append(time)
-            sorteados.append(time)
-            continue
-        elif mesma_nacionalidade(time.pais, grupos[letra]) and \
-                time.preliminar and len(grupos[letra]) < quantidade:
-            grupos[letra].append(time)
-            sorteados.append(time)
-            continue
-        else:
-            # jogar noutro grupo
-            grupos_ciclados = cycle(LETRAS_8_GRUPOS)
-            while next(grupos_ciclados) != letra:
-                pass
-            for nome_grupo in grupos_ciclados:
-                if nome_grupo == letra:
-                    break
-                if not mesma_nacionalidade(time.pais, grupos[nome_grupo]) and \
-                        len(grupos[nome_grupo]) < quantidade:
-                    grupos[nome_grupo].append(time)
-                    sorteados.append(time)
-                    break
-
-
-def eh_valido(grupos: dict):
-    return not any([len(x) != 4 for x in grupos.values()])
 
 
 pote1 = [
@@ -134,37 +88,3 @@ grupo4 = [
 ]
 
 
-def sortear(classificados: List[Time]):
-    grupos = {}
-
-    for i in range(len(LETRAS_8_GRUPOS)):
-        grupos[LETRAS_8_GRUPOS[i]] = []
-
-    pote1_misturado = pote1[:]
-
-    # coloca o campeão no grupo A
-    grupos['A'].append(pote1_misturado[0])
-    # retira o campeão do sorteio dos cabeças-de-chave
-    pote1_misturado.pop(0)
-    random.shuffle(pote1_misturado)
-    for letra in LETRAS_8_GRUPOS[1:8]:
-        time = pote1_misturado.pop()
-        grupos[letra].append(time)
-
-    sorteados = pote1[:]
-
-    # pote 2
-    sorteio_pote(grupos, pote2, sorteados, 2)
-    # pote 3
-    sorteio_pote(grupos, pote3, sorteados, 3)
-    # pote 4
-    sorteio_pote(grupos, pote4 + classificados, sorteados, 4)
-
-    return grupos
-
-
-def mostrar_grupos(grupos):
-    for letra in LETRAS_8_GRUPOS:
-        print('Grupo', letra)
-        for time in grupos[letra]:
-            print(time.nome, time.pais)

@@ -3,7 +3,8 @@ from flask.templating import render_template
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SubmitField
 
-from base import Time, trazer_escolha
+from base import Time, trazer_escolha, eh_valido
+import base
 import sorteio
 
 bp = Blueprint('liberta', __name__, url_prefix='/libertadores')
@@ -62,8 +63,9 @@ def sortear():
         ]
     sorteios = []
     while True:
-        s = sorteio.sortear(classificados)
-        if sorteio.eh_valido(s):
+        s = base.sortear(classificados, sorteio.pote1, sorteio.pote2, 
+            sorteio.pote3, sorteio.pote4)
+        if eh_valido(s):
             sorteios.append(s)
         if len(sorteios) == 3:
             break
