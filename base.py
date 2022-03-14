@@ -50,7 +50,7 @@ def foi_sorteado(time, sorteados):
     return True if time in sorteados else False
 
 
-def sorteio_pote(grupos, pote, sorteados, quantidade):
+def sorteio_pote(grupos, pote, sorteados, quantidade, ver_nacionalidade_preliminares):
     pote_misturado = pote[:]
     random.shuffle(pote_misturado)
     for letra in LETRAS_8_GRUPOS:
@@ -63,7 +63,8 @@ def sorteio_pote(grupos, pote, sorteados, quantidade):
             sorteados.append(time)
             continue
         elif mesma_nacionalidade(time.pais, grupos[letra]) and \
-                time.preliminar and len(grupos[letra]) < quantidade:
+            (time.preliminar and not ver_nacionalidade_preliminares) and \
+            len(grupos[letra]) < quantidade:
             grupos[letra].append(time)
             sorteados.append(time)
             continue
@@ -85,7 +86,7 @@ def sorteio_pote(grupos, pote, sorteados, quantidade):
 def eh_valido(grupos: dict):
     return not any([len(x) != 4 for x in grupos.values()])
 
-def sortear(classificados: List[Time], pote1, pote2, pote3, pote4, campeao_no_a=True):
+def sortear(classificados: List[Time], pote1, pote2, pote3, pote4, campeao_no_a=True, ver_nacionalidade_preliminares=False):
     grupos = {}
 
     for i in range(len(LETRAS_8_GRUPOS)):
@@ -106,11 +107,11 @@ def sortear(classificados: List[Time], pote1, pote2, pote3, pote4, campeao_no_a=
     sorteados = pote1[:]
 
     # pote 2
-    sorteio_pote(grupos, pote2, sorteados, 2)
+    sorteio_pote(grupos, pote2, sorteados, 2, ver_nacionalidade_preliminares)
     # pote 3
-    sorteio_pote(grupos, pote3, sorteados, 3)
+    sorteio_pote(grupos, pote3, sorteados, 3, ver_nacionalidade_preliminares)
     # pote 4
-    sorteio_pote(grupos, pote4 + classificados, sorteados, 4)
+    sorteio_pote(grupos, pote4 + classificados, sorteados, 4, ver_nacionalidade_preliminares)
 
     return grupos
 

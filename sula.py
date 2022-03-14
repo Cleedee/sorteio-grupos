@@ -8,19 +8,7 @@ bp = Blueprint('sula', __name__, url_prefix='/sula')
 
 @bp.get('/')
 def index():
-    classificaveis = sorteio.preclassificados.copy()
-    fase_de_grupo = sorteio.classificados + sorteio.preclassificados[0:16]
-    fase_de_grupo.sort(key=base.pegar_ranking)
-    perdedores = [
-        base.Time("Perdedor do G1", "preliberta.jpg", "999", True),
-        base.Time("Perdedor do G2", "preliberta.jpg", "999", True),
-        base.Time("Perdedor do G3", "preliberta.jpg", "999", True),
-        base.Time("Perdedor do G4", "preliberta.jpg", "999", True),
-    ]
-    pote1 = fase_de_grupo[0:8]
-    pote2 = fase_de_grupo[8:16]
-    pote3 = fase_de_grupo[16:24]
-    pote4 = perdedores + fase_de_grupo[24:]
+    pote1, pote2, pote3, pote4 = sorteio.traga_potes()
     return render_template(
         'sula/index.html',
         titulo='Copa Sul-Americana 2022',
@@ -29,3 +17,21 @@ def index():
         pote3=pote3,
         pote4=pote4
     )
+
+@bp.get('/sorteio')
+def sortear():
+    pote1, pote2, pote3, pote4 = sorteio.traga_potes()
+    sorteios = []
+    while True:
+        s = base.sortear([], pote1, pote2, 
+            pote3, pote4, campeao_no_a=False, ver_nacionalidade_preliminares=True)
+        if base.eh_valido(s):
+            sorteios.append(s)
+            print('Válido')
+        else:
+            print('Inválido')
+        if len(sorteios) == 3:
+            break
+    return render_template('sula/sorteio.html', sorteios=sorteios,
+                           titulo='Copa Sul-Americana 2022')
+

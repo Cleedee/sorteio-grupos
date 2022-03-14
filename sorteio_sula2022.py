@@ -1,4 +1,5 @@
 from base import Time
+import base
 
 pote1 = [
 ]
@@ -63,3 +64,19 @@ preclassificados = [
     Time('LDU', 'ldu.png', 'EQU', ranking=20),
     Time('Junior Barranquilla', 'junior.png', 'COL', ranking=25)      
 ]
+
+def traga_potes():
+    classificaveis = preclassificados.copy()
+    fase_de_grupo = classificados + preclassificados[0:16]
+    fase_de_grupo.sort(key=base.pegar_ranking)
+    perdedores = [
+        base.Time("Perdedor do G1", "preliberta.jpg", "XXX", True, ranking=999),
+        base.Time("Perdedor do G2", "preliberta.jpg", "XXX", True, ranking=999),
+        base.Time("Perdedor do G3", "preliberta.jpg", "XXX", True, ranking=999),
+        base.Time("Perdedor do G4", "preliberta.jpg", "XXX", True, ranking=999),
+    ]
+    pote1 = fase_de_grupo[0:8]
+    pote2 = fase_de_grupo[8:16]
+    pote3 = fase_de_grupo[16:24]
+    pote4 = perdedores + fase_de_grupo[24:]    
+    return (pote1, pote2, pote3, pote4)
