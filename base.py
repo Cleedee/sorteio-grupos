@@ -85,7 +85,7 @@ def sorteio_pote(grupos, pote, sorteados, quantidade):
 def eh_valido(grupos: dict):
     return not any([len(x) != 4 for x in grupos.values()])
 
-def sortear(classificados: List[Time], pote1, pote2, pote3, pote4):
+def sortear(classificados: List[Time], pote1, pote2, pote3, pote4, campeao_no_a=True):
     grupos = {}
 
     for i in range(len(LETRAS_8_GRUPOS)):
@@ -93,12 +93,13 @@ def sortear(classificados: List[Time], pote1, pote2, pote3, pote4):
 
     pote1_misturado = pote1[:]
 
-    # coloca o campeão no grupo A
-    grupos['A'].append(pote1_misturado[0])
-    # retira o campeão do sorteio dos cabeças-de-chave
-    pote1_misturado.pop(0)
+    if campeao_no_a:
+        # coloca o campeão no grupo A
+        grupos['A'].append(pote1_misturado[0])
+        # retira o campeão do sorteio dos cabeças-de-chave
+        pote1_misturado.pop(0)
     random.shuffle(pote1_misturado)
-    for letra in LETRAS_8_GRUPOS[1:8]:
+    for letra in LETRAS_8_GRUPOS[1 if campeao_no_a else 0:8]:
         time = pote1_misturado.pop()
         grupos[letra].append(time)
 

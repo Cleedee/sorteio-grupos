@@ -67,6 +67,9 @@ def sortear():
             sorteio.pote3, sorteio.pote4)
         if eh_valido(s):
             sorteios.append(s)
+            print('Válido')
+        else:
+            print('Inválido')
         if len(sorteios) == 3:
             break
     return render_template('liberta/sorteio.html', sorteios=sorteios,
