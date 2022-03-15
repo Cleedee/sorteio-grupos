@@ -13,7 +13,8 @@ class Time:
     imagem: str
     pais: str
     preliminar: bool = False
-    ranking: int = 99999
+    ranking: int = 999
+    ranking_cbf: int = 999
 
     def __eq__(self, __o: object) -> bool:
         return self.nome == __o.nome

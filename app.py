@@ -2,6 +2,7 @@ from flask import Flask, render_template
 
 import libertadores
 import sula
+import cdb
 
 
 def create_app():
@@ -10,6 +11,7 @@ def create_app():
 
     app.register_blueprint(libertadores.bp)
     app.register_blueprint(sula.bp)
+    app.register_blueprint(cdb.bp)
 
     @app.get('/')
     def index():

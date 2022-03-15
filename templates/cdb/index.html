@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block navegacao %}
+  <ul>
+    <li><a href="{{ url_for('index') }}">Início</a></li>
+    <li class="is-active"><a href="#" aria-current="page">Copa do Brasil 2022</a></li>
+  </ul>
+{% endblock %}
+{% block content %}
+
+<div class="tile is-ancestor">
+    <div class="tile is-vertical is-parent">
+        <div class="tile is-child box">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Pote A</p>
+                </header>
+                <div class="card-content">
+                    <ul>
+                        {% for time in pote_a %}
+                        <li>
+                            <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
+                            {{ time.nome }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
