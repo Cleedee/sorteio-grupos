@@ -17,8 +17,8 @@ times_g2 = escolhas_padrao + [(time.imagem, time.nome)
                               for time in sorteio.grupo2]
 times_g3 = escolhas_padrao + [(time.imagem, time.nome)
                               for time in sorteio.grupo3]
-times_g4 = escolhas_padrao + [(time.imagem, time.nome)
-                              for time in sorteio.grupo4]
+times_g4 = [(time.imagem, time.nome)
+            for time in sorteio.grupo4]
 
 
 class PreLibertaForm(FlaskForm):

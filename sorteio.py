@@ -84,7 +84,7 @@ grupo4 = [
     # Time("City Torque", "torque_uru.png", "URU", True), Perdeu para o Barcelona nos pênaltis
     # Time("Universitário", "universitaria_peru.png", "PER", True),
     # desclassificado pelo Barcelona
-    Time("Barcelona SC", "barcelonaeq.png", "EQU", True)
+    # Time("Barcelona SC", "barcelonaeq.png", "EQU", True)
 ]
 
 

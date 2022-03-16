@@ -28,17 +28,21 @@ classificados = [
     Time('Cuiabá', 'cuiaba_mt.png', 'BRA', ranking=253),
 ]
 
-desclassificados = []
+desclassificados = [
+    Time('Sol de América', 'soldeamerica_par.png', 'PAR', True, ranking=110),
+    Time('Estudiantes de Mérida', '', 'VEN', True, ranking=88),
+    Time('Royal Pari', 'royal_pari_bol.png', 'BOL', True, ranking=150),
+    Time('Cienciano', 'cienciano.png', 'PER', True, ranking=119),
+    Time('Ñublense', 'nublense_chi.png', 'CHI', True),
+]
 
 preclassificados = [
     Time('Jorge Wilstermann', 'wlstermann.png', 'BOL', True, ranking=39),
     Time('Guabirá', 'guabira_bol.png', 'BOL', True, ranking=140),
-    Time('Royal Pari', 'royal_pari_bol.png', 'BOL', True, ranking=150),
-    Time('Oriente Petrolero', 'oriente.png', 'BOL', True, ranking=84),
+    Time('Oriente Petrolero', 'oriente.png', 'BOL', ranking=84),
     Time('Unión Española', 'unionesp.gif', 'CHI', True, ranking=68),
     Time('Deportes Antofagasta', 'antofagasta.png', 'CHI', True, ranking=197),
-    Time('Ñublense', 'nublense_chi.png', 'CHI', True),
-    Time('Unión La Calera', 'union_la_calera_chi.png', 'CHI', True, ranking=91),
+    Time('Unión La Calera', 'union_la_calera_chi.png', 'CHI', ranking=91),
     Time('La Equidad', 'laequidad_col.png', 'COL', True, ranking=79),
     Time('Independiente Medellín', 'indep_medellin.png', 'COL', True, ranking=55),
     Time('América de Cali', 'am_cali.png', 'COL', True, ranking=37),
@@ -47,18 +51,15 @@ preclassificados = [
     Time('Mushuc Runa', 'musgucruna_ecu.jpg', 'EQU', True, ranking=233),
     Time('Nacional', 'nacional_par.png', 'PAR', True, ranking=6),
     Time('Guaireña', 'guairena_par.png', 'PAR', True, ranking=223),
-    Time('Sol de América', 'soldeamerica_par.png', 'PAR', True, ranking=110),
-    Time('General Caballero', 'general_jlm_par.png', 'PAR', True, ranking=999),   
+    Time('General Caballero', 'general_jlm_par.png', 'PAR', ranking=999),   
     Time('Ayacucho', 'intideayacucho.png', 'PER', True, ranking=190),   
     Time('Sport Boys', 'sportboys.png', 'PER', True, ranking=138),
-    Time('Cienciano', 'cienciano.png', 'PER', True, ranking=119),
-    Time('Melgar', 'melgar.png', 'PER', True, ranking=66),
+    Time('Melgar', 'melgar.png', 'PER', ranking=66),
     Time('Montevideo Wanderers', '', 'URU', True, ranking=73),
     Time('Cerro Largo', '', 'URU', True, ranking=153),
     Time('Liverpool', '', 'URU', True, ranking=157),
     Time('River Plate', '', 'URU', True, ranking=95),
-    Time('Estudiantes de Mérida', '', 'VEN', True, ranking=88),
-    Time('Metropolitanos', '', 'VEN', True, ranking=131), 
+    Time('Metropolitanos', '', 'VEN', ranking=131), 
     Time('Hermanos Colmenare', '', 'VEN', True, ranking=999), 
     Time('Deportivo La Guaira', '', 'VEN', True, ranking=89),
     Time('LDU', 'ldu.png', 'EQU', ranking=20),
@@ -70,10 +71,10 @@ def traga_potes():
     fase_de_grupo = classificados + preclassificados[0:16]
     fase_de_grupo.sort(key=base.pegar_ranking)
     perdedores = [
-        base.Time("Perdedor do G1", "preliberta.jpg", "XXX", True, ranking=999),
-        base.Time("Perdedor do G2", "preliberta.jpg", "XXX", True, ranking=999),
-        base.Time("Perdedor do G3", "preliberta.jpg", "XXX", True, ranking=999),
-        base.Time("Perdedor do G4", "preliberta.jpg", "XXX", True, ranking=999),
+        base.Time("Perdedor do G1", "preliberta.jpg", "XXX", ranking=999),
+        base.Time("Perdedor do G2", "preliberta.jpg", "XXX", ranking=999),
+        base.Time("Perdedor do G3", "preliberta.jpg", "XXX", ranking=999),
+        base.Time("Barcelona SC", "barcelonaeq.png", "EQU")
     ]
     pote1 = fase_de_grupo[0:8]
     pote2 = fase_de_grupo[8:16]
