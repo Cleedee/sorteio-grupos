@@ -34,6 +34,9 @@ desclassificados = [
     Time('Royal Pari', 'royal_pari_bol.png', 'BOL', True, ranking=150),
     Time('Cienciano', 'cienciano.png', 'PER', True, ranking=119),
     Time('Ñublense', 'nublense_chi.png', 'CHI', True),
+    Time('Liverpool', '', 'URU', True, ranking=157),
+    Time('Mushuc Runa', 'musgucruna_ecu.jpg', 'EQU', True, ranking=233),
+    Time('Sport Boys', 'sportboys.png', 'PER', True, ranking=138),
 ]
 
 preclassificados = [
@@ -48,17 +51,14 @@ preclassificados = [
     Time('América de Cali', 'am_cali.png', 'COL', True, ranking=37),
     Time('Delfín', 'delfin_eq.jpg', 'EQU', True, ranking=70),
     Time('9 de Octubre', '9oct_ecu.png', 'EQU', True, ranking=191),
-    Time('Mushuc Runa', 'musgucruna_ecu.jpg', 'EQU', True, ranking=233),
     Time('Nacional', 'nacional_par.png', 'PAR', True, ranking=6),
     Time('Guaireña', 'guairena_par.png', 'PAR', True, ranking=223),
     Time('General Caballero', 'general_jlm_par.png', 'PAR', ranking=999),   
-    Time('Ayacucho', 'intideayacucho.png', 'PER', True, ranking=190),   
-    Time('Sport Boys', 'sportboys.png', 'PER', True, ranking=138),
+    Time('Ayacucho', 'intideayacucho.png', 'PER', ranking=190),   
     Time('Melgar', 'melgar.png', 'PER', ranking=66),
     Time('Montevideo Wanderers', '', 'URU', True, ranking=73),
     Time('Cerro Largo', '', 'URU', True, ranking=153),
-    Time('Liverpool', '', 'URU', True, ranking=157),
-    Time('River Plate', '', 'URU', True, ranking=95),
+    Time('River Plate', 'river_uru.png', 'URU', ranking=95),
     Time('Metropolitanos', '', 'VEN', ranking=131), 
     Time('Hermanos Colmenare', '', 'VEN', True, ranking=999), 
     Time('Deportivo La Guaira', '', 'VEN', True, ranking=89),
@@ -72,7 +72,7 @@ def traga_potes():
     fase_de_grupo.sort(key=base.pegar_ranking)
     perdedores = [
         base.Time("Perdedor do G1", "preliberta.jpg", "XXX", ranking=999),
-        base.Time("Perdedor do G2", "preliberta.jpg", "XXX", ranking=999),
+        base.Time("Everton", "everton_ch.gif", "CHI"),
         base.Time("Perdedor do G3", "preliberta.jpg", "XXX", ranking=999),
         base.Time("Barcelona SC", "barcelonaeq.png", "EQU")
     ]

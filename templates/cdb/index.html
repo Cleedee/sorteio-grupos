@@ -27,6 +27,25 @@
             </div>
         </div>
     </div>
+    <div class="tile is-parent">
+        <div class="tile is-child box">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Pote B</p>
+                </header>
+                <div class="card-content">
+                    <ul>
+                        {% for time in pote_b %}
+                        <li>
+                            <img src="{{ url_for('static', filename = 'images/' + time.imagem) }}" width="40">
+                            {{ time.nome }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    
 
 </div>
 

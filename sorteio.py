@@ -61,7 +61,7 @@ grupo2 = [
     # Time("Audax Italiano", "audax.gif", "CHI", True),
     # desclassificado pelo Estudiantes
     Time("Estudiantes", "estudic.png", "ARG", True),
-    Time("Everton", "everton_ch.gif", "CHI", True),
+    # Time("Everton", "everton_ch.gif", "CHI", True),
     # Time("Monagas", "monagas_ven.png", "VEN", True)
     # desclassificado pelo Everton
 ]
