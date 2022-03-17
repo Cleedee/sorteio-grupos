@@ -11,8 +11,8 @@ bp = Blueprint('liberta', __name__, url_prefix='/libertadores')
 
 escolhas_padrao = [('aleatorio', 'Escolha por mim'),
                    ('indeterminado', 'Deixe indeterminado')]
-times_g1 = escolhas_padrao + [(time.imagem, time.nome)
-                              for time in sorteio.grupo1]
+times_g1 = [(time.imagem, time.nome)
+            for time in sorteio.grupo1]
 times_g2 = [(time.imagem, time.nome)
             for time in sorteio.grupo2]
 times_g3 = escolhas_padrao + [(time.imagem, time.nome)

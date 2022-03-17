@@ -1,5 +1,6 @@
 from base import Time
 import base
+from paises import brasil
 
 pote1 = [
 ]
@@ -37,6 +38,7 @@ desclassificados = [
     Time('Liverpool', '', 'URU', True, ranking=157),
     Time('Mushuc Runa', 'musgucruna_ecu.jpg', 'EQU', True, ranking=233),
     Time('Sport Boys', 'sportboys.png', 'PER', True, ranking=138),
+    Time('América de Cali', 'am_cali.png', 'COL', True, ranking=37),
 ]
 
 preclassificados = [
@@ -48,7 +50,6 @@ preclassificados = [
     Time('Unión La Calera', 'union_la_calera_chi.png', 'CHI', ranking=91),
     Time('La Equidad', 'laequidad_col.png', 'COL', True, ranking=79),
     Time('Independiente Medellín', 'indep_medellin.png', 'COL', True, ranking=55),
-    Time('América de Cali', 'am_cali.png', 'COL', True, ranking=37),
     Time('Delfín', 'delfin_eq.jpg', 'EQU', True, ranking=70),
     Time('9 de Octubre', '9oct_ecu.png', 'EQU', True, ranking=191),
     Time('Nacional', 'nacional_par.png', 'PAR', True, ranking=6),
@@ -71,7 +72,7 @@ def traga_potes():
     fase_de_grupo = classificados + preclassificados[0:16]
     fase_de_grupo.sort(key=base.pegar_ranking)
     perdedores = [
-        base.Time("Perdedor do G1", "preliberta.jpg", "XXX", ranking=999),
+        brasil.fluminense,
         base.Time("Everton", "everton_ch.gif", "CHI"),
         base.Time("Perdedor do G3", "preliberta.jpg", "XXX", ranking=999),
         base.Time("Barcelona SC", "barcelonaeq.png", "EQU")

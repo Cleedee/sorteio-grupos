@@ -6,7 +6,7 @@ atletico = Time("Atlético-MG", "atletico.png", "BRA", ranking_cbf=3)
 atlpr = Time("Athlético", "atlpr.png", "BRA", ranking_cbf=5)
 santos = Time('Santos', 'santos.png', 'BRA', ranking=8, ranking_cbf=6)
 saopaulo = Time('São Paulo', 'saopaulo.png', 'BRA', ranking=13, ranking_cbf=7)
-fluminense = Time("Fluminense", "fluminense.png", "BRA", True, ranking_cbf=9)
+fluminense = Time("Fluminense", "fluminense.png", "BRA", ranking_cbf=9)
 corinthians = Time("Corinthians", "corinthians.png", "BRA", ranking_cbf=10)
 fortaleza = Time("Fortaleza", "fortaleza.png", "BRA", ranking_cbf=11)
 bahia = Time("Bahia", "bahia.png", "BRA", ranking_cbf=12) # imagem
