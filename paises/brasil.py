@@ -30,3 +30,4 @@ tocantinopolis = Time("Tocantinopolis", "tocantinopolis.png", "BRA", ranking_cbf
 ceilandia_df = Time("Ceilândia", "ceilandia_df.jpg", "BRA", ranking_cbf=169)
 azuriz_pr = Time("Azuriz", "azuriz_pr.png", "BRA")
 juventude = Time("Juventude", "juventude.png", "BRA", ranking_cbf=24)
+goias = Time("Goiás", "goias.png", "BRA", ranking_cbf=23)

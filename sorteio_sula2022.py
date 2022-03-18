@@ -42,27 +42,27 @@ desclassificados = [
     Time('Unión Española', 'unionesp.gif', 'CHI', True, ranking=68),
     Time('Nacional', 'nacional_par.png', 'PAR', True, ranking=6),
     Time('Hermanos Colmenare', '', 'VEN', True, ranking=999),
+    Time('Guabirá', 'guabira_bol.png', 'BOL', True, ranking=140),
+    Time('La Equidad', 'laequidad_col.png', 'COL', True, ranking=79),
+    Time('Delfín', 'delfin_eq.jpg', 'EQU', True, ranking=70),
+    Time('Cerro Largo', '', 'URU', True, ranking=153),
 ]
 
 preclassificados = [
-    Time('Jorge Wilstermann', 'wlstermann.png', 'BOL', True, ranking=39),
-    Time('Guabirá', 'guabira_bol.png', 'BOL', True, ranking=140),
+    Time('Jorge Wilstermann', 'wlstermann.png', 'BOL', ranking=39),
     Time('Oriente Petrolero', 'oriente.png', 'BOL', ranking=84),
     Time('Deportes Antofagasta', 'antofagasta.png', 'CHI', ranking=197),
     Time('Unión La Calera', 'union_la_calera_chi.png', 'CHI', ranking=91),
-    Time('La Equidad', 'laequidad_col.png', 'COL', True, ranking=79),
-    Time('Independiente Medellín', 'indep_medellin.png', 'COL', True, ranking=55),
-    Time('Delfín', 'delfin_eq.jpg', 'EQU', True, ranking=70),
-    Time('9 de Octubre', '9oct_ecu.png', 'EQU', True, ranking=191),
+    Time('Independiente Medellín', 'indep_medellin.png', 'COL', ranking=55),
+    Time('9 de Octubre', '9oct_ecu.png', 'EQU', ranking=191),
     Time('Guaireña', 'guairena_par.png', 'PAR', ranking=223),
     Time('General Caballero', 'general_jlm_par.png', 'PAR', ranking=999),   
     Time('Ayacucho', 'intideayacucho.png', 'PER', ranking=190),   
     Time('Melgar', 'melgar.png', 'PER', ranking=66),
-    Time('Montevideo Wanderers', '', 'URU', True, ranking=73),
-    Time('Cerro Largo', '', 'URU', True, ranking=153),
+    Time('Montevideo Wanderers', 'wanderers_uru.png', 'URU', ranking=73),
     Time('River Plate', 'river_uru.png', 'URU', ranking=95),
-    Time('Metropolitanos', '', 'VEN', ranking=131),  
-    Time('Deportivo La Guaira', '', 'VEN', ranking=89),
+    Time('Metropolitanos', 'metropolitano_ven.jpg', 'VEN', ranking=131),  
+    Time('Deportivo La Guaira', 'la_guaira_ven.png', 'VEN', ranking=89),
     Time('LDU', 'ldu.png', 'EQU', ranking=20),
     Time('Junior Barranquilla', 'junior.png', 'COL', ranking=25)      
 ]
@@ -74,11 +74,11 @@ def traga_potes():
     perdedores = [
         brasil.fluminense,
         base.Time("Everton", "everton_ch.gif", "CHI"),
-        base.Time("Perdedor do G3", "preliberta.jpg", "XXX", ranking=999),
+        base.Time("Universid Católica", "un_catolica_ecu.png", "EQU"),
         base.Time("Barcelona SC", "barcelonaeq.png", "EQU")
     ]
     pote1 = fase_de_grupo[0:8]
     pote2 = fase_de_grupo[8:16]
     pote3 = fase_de_grupo[16:24]
-    pote4 = perdedores + fase_de_grupo[24:]    
+    pote4 = fase_de_grupo[24:] + perdedores
     return (pote1, pote2, pote3, pote4)

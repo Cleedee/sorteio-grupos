@@ -11,10 +11,10 @@ pote_a = [
 ]
 
 pote_b = [
-    brasil.cuiaba_mt, brasil.juventude, brasil.coritiba,
-    brasil.csa, brasil.vilanova, brasil.remo, brasil.juazeirense_ba, brasil.tombense_mg , 
-    brasil.brasiliense,
-    brasil.altos_pi,  brasil.portuguesa_rj, brasil.ceilandia_df, brasil.tocantinopolis,
+    brasil.cuiaba_mt,  brasil.goias, brasil.juventude, brasil.coritiba,
+    brasil.csa, brasil.vilanova, brasil.remo, brasil.tombense_mg,
+    brasil.juazeirense_ba, brasil.brasiliense, brasil.altos_pi,  
+    brasil.portuguesa_rj, brasil.tocantinopolis, brasil.ceilandia_df, 
     brasil.azuriz_pr
 
 ]

@@ -15,8 +15,8 @@ times_g1 = [(time.imagem, time.nome)
             for time in sorteio.grupo1]
 times_g2 = [(time.imagem, time.nome)
             for time in sorteio.grupo2]
-times_g3 = escolhas_padrao + [(time.imagem, time.nome)
-                              for time in sorteio.grupo3]
+times_g3 = [(time.imagem, time.nome)
+            for time in sorteio.grupo3]
 times_g4 = [(time.imagem, time.nome)
             for time in sorteio.grupo4]
 

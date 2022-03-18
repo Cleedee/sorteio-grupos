@@ -71,7 +71,7 @@ grupo3 = [
     # desclassificado pelo Bolivar
     # Time("Bolivar", "bolivar.png", "BOL", True),
     # desclassificado pelo Universid Católica
-    Time("Universid Católica", "un_catolica_ecu.png", "EQU", True),
+    # Time("Universid Católica", "un_catolica_ecu.png", "EQU", True),
     # Time("Plaza Colonia", "plazacolonia.png", "URU", True),
     # desclassificado pelo The Strongest
     Time("The Strongest", "strongest.png", "BOL", True)
