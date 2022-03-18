@@ -29,3 +29,4 @@ portuguesa_rj = Time("Portuguesa-RJ", "portuguesa_rj.png", "BRA", ranking_cbf=12
 tocantinopolis = Time("Tocantinopolis", "tocantinopolis.png", "BRA", ranking_cbf=146)
 ceilandia_df = Time("Ceilândia", "ceilandia_df.jpg", "BRA", ranking_cbf=169)
 azuriz_pr = Time("Azuriz", "azuriz_pr.png", "BRA")
+juventude = Time("Juventude", "juventude.png", "BRA", ranking_cbf=24)
