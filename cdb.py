@@ -1,3 +1,6 @@
+from random import shuffle
+from collections import namedtuple
+
 from flask import Blueprint, render_template
 
 import base
@@ -11,11 +14,11 @@ pote_a = [
 ]
 
 pote_b = [
-    brasil.cuiaba_mt,  brasil.goias, brasil.juventude, brasil.coritiba,
-    brasil.csa, brasil.vilanova, brasil.remo, brasil.tombense_mg,
-    brasil.juazeirense_ba, brasil.brasiliense, brasil.altos_pi,  
-    brasil.portuguesa_rj, brasil.tocantinopolis, brasil.ceilandia_df, 
-    brasil.azuriz_pr
+    brasil.cuiaba_mt,  brasil.goias, brasil.juventude, brasil.vitoria,
+    brasil.coritiba, brasil.csa, brasil.vilanova, brasil.remo, 
+    brasil.tombense_mg, brasil.juazeirense_ba, brasil.brasiliense, 
+    brasil.altos_pi, brasil.portuguesa_rj, brasil.tocantinopolis, 
+    brasil.ceilandia_df, brasil.azuriz_pr
 
 ]
 
@@ -24,3 +27,13 @@ bp = Blueprint('cdb', __name__, url_prefix='/cdb')
 @bp.get('/')
 def index():
     return render_template('cdb/index.html', pote_a=pote_a, pote_b=pote_b)
+
+@bp.get('/sorteio')
+def sorteio():
+    shuffle(pote_a)
+    shuffle(pote_b)
+    Partida = namedtuple('Partida','mandante visitante')
+    partidas = []
+    for indice in range(16):
+        partidas.append(Partida(pote_a[indice], pote_b[indice]))
+    return render_template('cdb/sorteio.html', partidas=partidas)
