@@ -8,16 +8,16 @@ from paises import brasil
 
 pote_a = [
     brasil.fla, brasil.palmeiras, brasil.atletico, brasil.atlpr, brasil.santos,
-    brasil.saopaulo, brasil.fluminense, brasil.corinthians, brasil.fortaleza, 
-    brasil.bahia, brasil.ceara, brasil.cruzeiro, brasil.ammg, brasil.atlego, 
+    brasil.saopaulo, brasil.fluminense, brasil.corinthians, brasil.fortaleza,
+    brasil.bahia, brasil.ceara, brasil.cruzeiro, brasil.ammg, brasil.atlego,
     brasil.botafogo, brasil.bragantino,
 ]
 
 pote_b = [
     brasil.cuiaba_mt,  brasil.goias, brasil.juventude, brasil.vitoria,
-    brasil.coritiba, brasil.csa, brasil.vilanova, brasil.remo, 
-    brasil.tombense_mg, brasil.juazeirense_ba, brasil.brasiliense, 
-    brasil.altos_pi, brasil.portuguesa_rj, brasil.tocantinopolis, 
+    brasil.coritiba, brasil.csa, brasil.vilanova, brasil.remo,
+    brasil.tombense_mg, brasil.juazeirense_ba, brasil.brasiliense,
+    brasil.altos_pi, brasil.portuguesa_rj, brasil.tocantinopolis,
     brasil.ceilandia_df, brasil.azuriz_pr
 
 ]
@@ -36,4 +36,6 @@ def sorteio():
     partidas = []
     for indice in range(16):
         partidas.append(Partida(pote_a[indice], pote_b[indice]))
-    return render_template('cdb/sorteio.html', partidas=partidas)
+    coluna1 = partidas[:8]
+    coluna2 = partidas[8:]
+    return render_template('cdb/sorteio.html', coluna1=coluna1, coluna2=coluna2)

@@ -14,18 +14,36 @@
             <div class="card">
                 <div class="card-content">
                     <table class="table">
-                        {% for partida in partidas %}
-                        <tr>
-                            <td>
-                                <img src="{{ url_for('static', filename = 'images/' + partida.mandante.imagem) }}" width="40">
-                                {{ partida.mandante.nome }}
-                            </td>
-                            <td>
-                                <img src="{{ url_for('static', filename = 'images/' + partida.visitante.imagem) }}" width="40">
-                                {{ partida.visitante.nome }}
-                            </td>
-                        </tr>
-                        {% endfor %}
+                        <tbody>
+                            {% for index in range(8) %}
+                            <tr>
+                                <td>
+                                    <div class="content">
+                                        <img
+                                            src="{{ url_for('static', filename = 'images/' + coluna1[index].mandante.imagem) }}"
+                                            width="40"
+                                            title="{{ coluna1[index].mandante.nome }}"> x
+                                        <img
+                                            src="{{ url_for('static', filename = 'images/' + coluna1[index].visitante.imagem) }}"
+                                            width="40"
+                                            title="{{ coluna1[index].visitante.nome }}">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        <img
+                                            src="{{ url_for('static', filename = 'images/' + coluna2[index].mandante.imagem) }}"
+                                            width="40"
+                                            title="{{ coluna2[index].mandante.nome }}"> x
+                                        <img
+                                            src="{{ url_for('static', filename = 'images/' + coluna2[index].visitante.imagem) }}"
+                                            width="40"
+                                            title="{{ coluna2[index].visitante.nome }}">
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}                            
+                        </tbody>
                     </table>
                 </div>
             </div>
