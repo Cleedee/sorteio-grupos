@@ -29,6 +29,11 @@ oitavas = [
     brasil.fortaleza, brasil.palmeiras, brasil.santos, brasil.saopaulo
 ]
 
+quartas = [
+    brasil.ammg, brasil.atlpr, brasil.atlego, brasil.corinthians, 
+    brasil.fla, brasil.fluminense, brasil.fortaleza, brasil.palmeiras
+]
+
 bp = Blueprint('cdb', __name__, url_prefix='/cdb')
 
 @bp.get('/')
@@ -61,3 +66,18 @@ def sorteio_oitavas():
     coluna2 = partidas[4:]
     return render_template('cdb/sorteio.html', coluna1=coluna1, coluna2=coluna2,
         partidas_coluna=4)
+
+@bp.get('/sorteio-quartas')
+def sorteio_quartas():
+    shuffle(quartas)
+    mandantes = quartas[:4]
+    visitantes = quartas[4:]
+
+    Partida = namedtuple('Partida','mandante visitante')
+    partidas = []
+    for indice in range(4):
+        partidas.append(Partida(mandantes[indice], visitantes[indice]))
+    coluna1 = partidas[:2]
+    coluna2 = partidas[2:]
+    return render_template('cdb/sorteio.html', coluna1=coluna1, coluna2=coluna2,
+        partidas_coluna=2)    

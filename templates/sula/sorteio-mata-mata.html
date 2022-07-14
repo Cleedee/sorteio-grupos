@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block navegacao %}
+  <ul>
+    <li><a href="{{ url_for('index') }}">Início</a></li>
+    <li><a href="{{ url_for('sula.index') }}">Copa Sul-Americana 2022</a></li>
+    <li class="is-active"><a href="#">Sorteio</a></li>
+  </ul>
+{% endblock %}
+{% block content %}
+
+<div class="tile is-ancestor">
+    <div class="tile is-vertical is-parent">
+        <div class="tile is-child box">
+            <div class="card">
+                <div class="card-content">
+                    <table class="table">
+                        <tbody>
+                            {% for index in range(partidas_coluna) %}
+                            <tr>
+                                <td>
+                                    <div class="content">
+                                        <img
+                                            src="{{ url_for('static', filename = 'images/' + coluna1[index].mandante.imagem) }}"
+                                            width="40"
+                                            title="{{ coluna1[index].mandante.nome }}"> x
+                                        <img
+                                            src="{{ url_for('static', filename = 'images/' + coluna1[index].visitante.imagem) }}"
+                                            width="40"
+                                            title="{{ coluna1[index].visitante.nome }}">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        <img
+                                            src="{{ url_for('static', filename = 'images/' + coluna2[index].mandante.imagem) }}"
+                                            width="40"
+                                            title="{{ coluna2[index].mandante.nome }}"> x
+                                        <img
+                                            src="{{ url_for('static', filename = 'images/' + coluna2[index].visitante.imagem) }}"
+                                            width="40"
+                                            title="{{ coluna2[index].visitante.nome }}">
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

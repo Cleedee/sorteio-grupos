@@ -1,3 +1,6 @@
+from random import shuffle
+from collections import namedtuple
+
 from flask import Blueprint
 from flask.templating import render_template
 from flask_wtf import FlaskForm
@@ -6,6 +9,7 @@ from wtforms import SelectField, SubmitField
 from base import Time, trazer_escolha, eh_valido
 import base
 import sorteio
+from paises import brasil, argentina
 
 bp = Blueprint('liberta', __name__, url_prefix='/libertadores')
 
@@ -19,6 +23,11 @@ times_g3 = [(time.imagem, time.nome)
             for time in sorteio.grupo3]
 times_g4 = [(time.imagem, time.nome)
             for time in sorteio.grupo4]
+
+quartas = [
+    argentina.velez, argentina.estudiantes, brasil.atlpr, brasil.fla,
+    brasil.palmeiras, brasil.corinthians, brasil.atletico, argentina.talleres
+]
 
 
 class PreLibertaForm(FlaskForm):
@@ -74,3 +83,18 @@ def sortear():
             break
     return render_template('liberta/sorteio.html', sorteios=sorteios,
                            titulo='Copa Libertadores 2022')
+
+@bp.get('/sorteio-quartas')
+def sorteio_quartas():
+    shuffle(quartas)
+    mandantes = quartas[:4]
+    visitantes = quartas[4:]
+
+    Partida = namedtuple('Partida','mandante visitante')
+    partidas = []
+    for indice in range(4):
+        partidas.append(Partida(mandantes[indice], visitantes[indice]))
+    coluna1 = partidas[:2]
+    coluna2 = partidas[2:]
+    return render_template('liberta/sorteio-mata-mata.html', coluna1=coluna1, coluna2=coluna2,
+        partidas_coluna=2)
