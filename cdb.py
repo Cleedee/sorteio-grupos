@@ -31,7 +31,7 @@ oitavas = [
 
 quartas = [
     brasil.ammg, brasil.atlpr, brasil.atlego, brasil.corinthians, 
-    brasil.fla, brasil.fluminense, brasil.fortaleza, brasil.palmeiras
+    brasil.fla, brasil.fluminense, brasil.fortaleza, brasil.saopaulo
 ]
 
 bp = Blueprint('cdb', __name__, url_prefix='/cdb')
