@@ -31,7 +31,6 @@ quartas = [
 
 
 class PreLibertaForm(FlaskForm):
-    # TODO lista de times
     g1 = SelectField('Vencedor do G1', choices=times_g1)
     g2 = SelectField('Vencedor do G2', choices=times_g2)
     g3 = SelectField('Vencedor do G3', choices=times_g3)
@@ -39,11 +38,36 @@ class PreLibertaForm(FlaskForm):
     submit = SubmitField('Continuar', render_kw={'class': 'button is-success'})
 
 
-@bp.get('/')
+@bp.get('/index')
 def index():
     form = PreLibertaForm()
     return render_template('liberta/index.html', form=form,
-                           titulo='Copa Libertadores 2022')
+                           titulo='Copa Libertadores 2023')
+
+@bp.get('/')
+def simulacao():
+    # pegar os 3 times da 1ª fase
+    clubes_fase_1 = sorteio.fase_pre_1_pote_1 + sorteio.fase_pre_1_pote_2
+    shuffle(clubes_fase_1)
+    classificados_fase_1 = clubes_fase_1[:3]
+    # coloque-os na fase 2
+    clubes_fase_2 = sorteio.fase_pre_2 + classificados_fase_1
+    shuffle(clubes_fase_2)
+    classificados_fase_de_grupo = clubes_fase_2[:4]
+    # sorteio os grupos
+    sorteios = []
+    while True:
+        s = base.sortear(classificados_fase_de_grupo, sorteio.pote1, sorteio.pote2, 
+            sorteio.pote3, sorteio.pote4)
+        if eh_valido(s):
+            sorteios.append(s)
+            print('Válido')
+        else:
+            print('Inválido')
+        if len(sorteios) == 3:
+            break
+    return render_template('liberta/sorteio.html', sorteios=sorteios,
+                           titulo='Copa Libertadores 2023')
 
 
 @bp.post('/')
@@ -82,7 +106,7 @@ def sortear():
         if len(sorteios) == 3:
             break
     return render_template('liberta/sorteio.html', sorteios=sorteios,
-                           titulo='Copa Libertadores 2022')
+                           titulo='Copa Libertadores 2023')
 
 @bp.get('/sorteio-quartas')
 def sorteio_quartas():

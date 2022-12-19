@@ -1,66 +1,89 @@
 import random
 
-from base import Time, LETRAS_8_GRUPOS, sorteio_pote
+from base import Time
+from paises import brasil, argentina, paraguai, bolivia, chile, venezuela
+from paises import equador, uruguai, colombia, peru
 
 
 
 
 
 pote1 = [
-    Time("Palmeiras", "palmeiras.png", "BRA"),
-    Time("River Plate", "riverc.png", "ARG"),
-    Time("Boca Jrs", "bocc.png", "ARG"),
-    Time("Flamengo", "fla.png", "BRA"),
-    Time("Nacional", "naciouru.png", "URU"),
-    Time("Peñarol", "penarol.png", "URU"),
-    Time("Athlético", "atlpr.png", "BRA"),
-    Time("Atlético-MG", "atletico.png", "BRA")
+    brasil.fla,
+    argentina.riverc,
+    brasil.palmeiras,
+    argentina.bocc,
+    paraguai.nacional,
+    brasil.atlpr,
+    equador.delvalle,
+    paraguai.olimpia,
 ]
 
 pote2 = [
-    Time("Cerro Porteño", "cerropor.png", "PAR"),
-    Time("Libertad", "libertad.png", "PAR"),
-    Time("Ind. Del Valle", "indep_j_teran.jpg", "EQU"),
-    Time("Univ. Católica", "unicatolica.png", "CHI"),
-    Time("Emelec", "emelec.png", "EQU"),
-    Time("Corinthians", "corinthians.png", "BRA"),
-    Time("Colo-Colo", "colocolo.png", "CHI"),
-    Time("Velez Sarsfield", "velez.png", "ARG")
+    paraguai.libertad,
+    colombia.atletico_nacional,
+    brasil.inter,
+    equador.barcelona,
+    argentina.racingc,
+    brasil.corinthians,
+    chile.colocolo,
+    brasil.fluminense,
 ]
 
 pote3 = [
-    Time("Sporting Cristal", "cristal.jpg", "PER"),
-    Time("RB Bragantino", "bragantino.png", "BRA"),
-    Time("Tachira", "tachira.png", "VEN"),
-    Time("Alianza Lima", "alianza.jpg", "PER"),
-    Time("Tolima", "dtolima_col.png", "COL"),
-    Time("Colon", "colon.png", "ARG"),
-    Time("Caracas", "caracas.png", "VEN"),
-    Time("Dep. Cali", "dep_cali.png", "COL")
+    bolivia.bolivar,    
+    bolivia.strongest,
+    peru.melgar,
+    peru.alianza,
+    argentina.argentinos,
+    venezuela.metropolitanos,
+    equador.aucas,
+    venezuela.monagas,
 ]
 
 pote4 = [
-    Time("Always Ready", "always_ready_bol.png", "BOL"),
-    Time("Talleres", "talleres.png", "ARG"),
-    Time("Ind. Petrolero", "indeppetrobol.png", "BOL"),
-    Time("Fortaleza", "fortaleza.png", "BRA")
+    uruguai.liverpool,
+    colombia.deportivo_pereira,
+    chile.nublense,
+    argentina.patronato,
+]
+
+fase_pre_1_pote_1 = [
+    paraguai.nacional,
+    equador.el_nacional,
+    venezuela.zamora,
+]
+
+fase_pre_1_pote_2 = [
+    peru.sport_huancayo,
+    bolivia.nacional_potosi,
+    uruguai.boston_river,
+]
+
+fase_pre_2 = [
+    brasil.atletico,
+    paraguai.cerropor,
+    peru.sporting_cristal,
+    colombia.independiente_medellin,
+    colombia.millonarios,
+    argentina.huracan,
+    bolivia.always_ready,
+    brasil.fortaleza,
+    equador.universidade_catolica,
+    venezuela.carabobo,    
+    chile.magallanes,
+    chile.curico_unido,
+
 ]
 
 grupo1 = [
-    # Time("Millonarios", "millo.png", "COL", True),
-    # desclassificado pelo Fluminense
-    # Time("Fluminense", "fluminense.png", "BRA", True),
-    # Time("Atlético Nacional", "medelin.png", "COL", True),
-    # desclassificado pelo Olimpia
-    # Time("Universidade César Vallejo", "cesarvallejo.png", "PER", True),
-    # desclassificado pelo Olimpia
-    Time("Olímpia", "olimpia.png", "PAR", True)
+    brasil.atletico,
+    brasil.fortaleza,
 ]
 
 grupo2 = [
     # Time("Audax Italiano", "audax.gif", "CHI", True),
     # desclassificado pelo Estudiantes
-    Time("Estudiantes", "estudic.png", "ARG", True),
     # Time("Everton", "everton_ch.gif", "CHI", True),
     # Time("Monagas", "monagas_ven.png", "VEN", True)
     # desclassificado pelo Everton
@@ -74,11 +97,9 @@ grupo3 = [
     # Time("Universid Católica", "un_catolica_ecu.png", "EQU", True),
     # Time("Plaza Colonia", "plazacolonia.png", "URU", True),
     # desclassificado pelo The Strongest
-    Time("The Strongest", "strongest.png", "BOL", True)
 ]
 
 grupo4 = [
-    Time("América Mineiro", "ammg.gif", "BRA", True),
     # Time("Guarani", "guarani_par.png", "URU", True),
     # desclassificado pelo América
     # Time("City Torque", "torque_uru.png", "URU", True), Perdeu para o Barcelona nos pênaltis
