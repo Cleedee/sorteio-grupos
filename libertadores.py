@@ -8,7 +8,7 @@ from wtforms import SelectField, SubmitField
 
 from base import Time, trazer_escolha, eh_valido
 import base
-import sorteio
+import sorteio_liberta2025 as sorteio
 from paises import brasil, argentina
 
 bp = Blueprint('liberta', __name__, url_prefix='/libertadores')
